@@ -55,4 +55,7 @@ After finding the optimial theta, we can draw the decision boundary for the plot
 
 And we can use this theta to predict any new applicants. The idea is that we need to first calculate the hypothesis (Attention: this value should be sent into sigmoid function, which is the point different from linear regression). Then from the figure of sigmoid function, we know that if h>=0.5, then it shoulf classified as label 1(the positive one).
 
-The second task is to 
+The second task is to classify a dataset which is not linear. Thus we need to add more features to build a more complex hypothesis model. So we add the feature of [1, x_1,x_2,x_1*x_2,x_1^2,x_2^2,x_1^3,x_2^3,x_1^2*x_2......x_1^6,x_2^6]
+More feature will easier to cause the problem of overfitting, so we need to use the idea of regulization to reduce the value of each theta by adding the regulization parameter:lamda.
+
+After experiment, we conclude that if the lamda is too small, then it may lead to overfitting; if it is too large, it will underfitting, which means even not fitting the training dataset.
