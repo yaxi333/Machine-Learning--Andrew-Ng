@@ -21,3 +21,38 @@ Improvement:
 In this setting, the predicted value produced by this two methods are totally the same. However, if we want to save more expenses, we can just set num_iteration = 200.
 This may lead to errors of only 0.002, which I think is still acceptable.
 
+# Project 2: Logistic Regression
+The second project is to solve the simple classification problems based on Logistic Regression to implement on two different dataset. 
+One for linear decision boundary and the other one for nonlinear decision boundary.
+
+The first task is to build a logistic regression model to predict whether a student gets admitted into a university. And you have the dataset of the previous years applicant’s chance of admission based on their results on two exams. So we use this to build our logistic regression model.
+We generally first plot the 2D figures of the training set(in this case, we only have 2 features in both datasets). Based on the plot, we can get a general idea of this datdaset is that our hypothesis is a line. So we do not need to add our features to build an nonlinear classifier model.
+We use advanced optimizaton method (based on fminunc() function) rather than gradient descent method. This codes for this medthod is as follows:
+
+% First build the costFunction to calculate the cost and gradients w.r.t each features(theta)
+function [jVal, gradient] = costFunction(theta, X, y)
+         jVal = [code to compute the cost function J(theta)];
+         gradient(1) = [code to compute the gradient for theta(0)];
+         gradient(2) = [code to compute the gradient for theta(1)];
+         ......
+         ......
+         gradient(n+1) = [code to compute the gradient for theta(n)];
+end
+
+% In the main function, we call the costFunction
+% 'GradObj','on' : provide gradient to this algorithm
+% 'MaxIter', 100 : the maximum iteration times 100
+% optTheta : the final optimal theta we finally find
+% functionVal : the final cost w.r.t the opitimal value
+% exitFlag : verify wether the function has converged
+% initialTheta: pay attention that the dimension should >= 2
+
+options = optimset('GradObj','on','MaxIter', 100);
+initialTheta = zeros(n+1,1);
+[optTheta, functionVal(costVal), exitFlag] = fminunc(@(t)costFunction, initialTheta, options);
+
+After finding the optimial theta, we can draw the decision boundary for the plotted data figures.
+
+And we can use this theta to predict any new applicants. The idea is that we need to first calculate the hypothesis (Attention: this value should be sent into sigmoid function, which is the point different from linear regression). Then from the figure of sigmoid function, we know that if h>=0.5, then it shoulf classified as label 1(the positive one).
+
+The second task is to 
