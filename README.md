@@ -59,3 +59,15 @@ The second task is to classify a dataset which is not linear. Thus we need to ad
 More feature will easier to cause the problem of overfitting, so we need to use the idea of regulization to reduce the value of each theta by adding the regulization parameter:lamda.
 
 After experiment, we conclude that if the lamda is too small, then it may lead to overfitting; if it is too large, it will underfitting, which means even not fitting the training dataset.
+
+# Project 3:  Multi-class Classification and Neural Networks
+In this project, we implement one-vs-all logistic regression and neural networks to recognize hand-written digits (from 0 to 9). We use multiple one-vs-all logistic regression models to build a multi-class classifier. Since there are 10 classes, we trained 10 separate logistic regression classifiers in the vectorizing form which means that we do not employ any for loops. In this task we use fmincg() function to do optimization, which is more efficient for dealing with a large number of parameters than fminunc(). Finaly, the output is a probability of each class, we choose the maximum one of them as our final predicted label.
+
+As logistic regression cannot form more complex hypotheses as it is only a linear classifier, we introduce another method : The neural network that is able to represent complex models that form non-linear hypotheses. And in this method, we do not need to do optimization, instead we use the Feedforward Propagation Medthod.
+
+We need to pay attention that since we do prediction of 5000 examples at the same time. So we need to use the vectorizing method. Transfer all this examples and their features at the same time in the form of Matrix. And also do the Feedforward Propagation at the same time. In each layer we need to transfer our results through the activation function to get the probability. Finally, in the output layer, we need to choose the class with the max probability as the class of the corresponding example.
+
+
+
+
+
