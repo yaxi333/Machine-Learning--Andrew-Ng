@@ -68,6 +68,18 @@ As logistic regression cannot form more complex hypotheses as it is only a linea
 We need to pay attention that since we do prediction of 5000 examples at the same time. So we need to use the vectorizing method. Transfer all this examples and their features at the same time in the form of Matrix. And also do the Feedforward Propagation at the same time. In each layer we need to transfer our results through the activation function to get the probability. Finally, in the output layer, we need to choose the class with the max probability as the class of the corresponding example.
 
 
+# Project 4:
 
+# Project 5: Regularized Linear Regression and Bias v.s. Variance
+We use regularized linear regression and use it to study models with different bias-variance properties. In the first half of the exercise, we implement regularized linear regression to predict the amount of water flowing out of a dam using the change of water level in a reservoir. In the next half, we go through some diagnostics of debugging learning algorithms and examine the effects of bias v.s. variance.
 
+We know that an important concept in machine learning is the bias-variance tradeoff. Models with high bias are not complex enough for the data and tend to underfit,
+while models with high variance overfit to the training data. And we often plot training and cross-validation errors on a learning curve to diagnose bias-variance problems.
 
+To plot the learning curve, we first trained the model with lambda = 0/ lambda = some values. Then we can get the optimal theta parameters. We then test this well-trained model on the training set and validation set. Calculate the corresponding errors. And we repeat this based on different number of training examples(the first 1:i:m training examples in training set). Pay attention that to calculate the J_train and J_val also later J_test, we can not add the regulation factor, since what we waht to get is the practical/ true error. And we calculate the error on the selected subset of the training set.
+
+After plot the learning curve,we can know it's high bias or variance problem. If both the train error and cross validation error are high when the number of training examples is increased. This reflects a high bias problem in the model – the linear regression model is too simple and is unable to fit our dataset well. We address this problem by adding more features. Here we use the polynomial regression to fit the data which means adding features of [x x^2 x^3 x^4 x^5 x^6 x^7 x^8]. Pay attention that in this case as the features would be badly scaled, we need to use feature normalization.
+
+If there is a gap between the training and cross validation errors, indicating a high variance problem. One way to combat the overfitting (high-variance) problem is to add regularization to the model. We can select λ(regularization factor) by using a cross validation set. That is to plot a cross validation curve of error v.s. λ that allows you select which λ parameter to use. Remember it is important to evaluate the “final” model on a test set that was not used in any part of training (that is, it was neither used to select the λ parameters, nor to learn the model parameters θ).
+
+Finally we also tried to Plotting learning curves with randomly selected examples.
